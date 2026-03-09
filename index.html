@@ -536,6 +536,121 @@
     </style>
     <!-- End Hero Area -->
 
+    <!-- Start Trust Banner (Authority Hook)
+    ============================================= -->
+    <div class="kz-trust-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="kz-trust-content">
+                        <span class="kz-trust-label">Trusted By Travelers & Certified Experts</span>
+                        <div class="kz-trust-logos">
+                            <div class="kz-trust-item">
+                                <i class="fas fa-star" style="color: #ff5e14; margin-right: 5px;"></i>
+                                <i class="fas fa-star" style="color: #ff5e14; margin-right: 5px;"></i>
+                                <i class="fas fa-star" style="color: #ff5e14; margin-right: 5px;"></i>
+                                <i class="fas fa-star" style="color: #ff5e14; margin-right: 5px;"></i>
+                                <i class="fas fa-star" style="color: #ff5e14; margin-right: 10px;"></i>
+                                <strong>5-Star Rated</strong> Experiences
+                            </div>
+                            <div class="kz-trust-item">
+                                <i class="fas fa-shield-check" style="color: #a8bcaf; margin-right: 10px;"></i>
+                                Secure & <strong>Safe Travel</strong>
+                            </div>
+                            <div class="kz-trust-item">
+                                <i class="fas fa-gem" style="color: #a8bcaf; margin-right: 10px;"></i>
+                                <strong>Luxury</strong> Tailored Itineraries
+                            </div>
+                            <div class="kz-trust-item">
+                                <i class="fas fa-headset" style="color: #a8bcaf; margin-right: 10px;"></i>
+                                <strong>24/7</strong> VIP Support
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .kz-trust-banner {
+            background: #050806;
+            /* Deepest black for contrast */
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .kz-trust-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .kz-trust-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+            margin-right: 40px;
+        }
+
+        .kz-trust-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .kz-trust-item {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            color: #c4d4ca;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .kz-trust-item:hover {
+            opacity: 1;
+        }
+
+        .kz-trust-item strong {
+            color: #ffffff;
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        @media (max-width: 991px) {
+            .kz-trust-content {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .kz-trust-label {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .kz-trust-logos {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .kz-trust-item {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+
     <!-- Start "Why Africa" Emotional Hook (Marketing Conversion Funnel) 
     ============================================= -->
     <div id="why-africa" class="kz-why-africa-area">
@@ -883,7 +998,10 @@
                         <span class="kz-grid-category">Kenya</span>
                         <h3 class="kz-grid-title">HELL'S GATE</h3>
                         <p class="kz-grid-desc">National Park</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,200</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -894,7 +1012,10 @@
                         <span class="kz-grid-category">Kenya</span>
                         <h3 class="kz-grid-title">NAIVASHA</h3>
                         <p class="kz-grid-desc">Lake Naivasha</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,450</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -906,7 +1027,10 @@
                         <span class="kz-grid-category">Kenya</span>
                         <h3 class="kz-grid-title">ELEMENTAITA</h3>
                         <p class="kz-grid-desc">Soysambu National Park</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,600</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -918,7 +1042,10 @@
                         <span class="kz-grid-category">Kenya</span>
                         <h3 class="kz-grid-title">NAKURU</h3>
                         <p class="kz-grid-desc">National Park</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,850</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -929,7 +1056,10 @@
                         <span class="kz-grid-category">Kenya</span>
                         <h3 class="kz-grid-title">MASAI MARA</h3>
                         <p class="kz-grid-desc">Optional Add-On</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $2,100</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -940,7 +1070,10 @@
                         <span class="kz-grid-category">Kenya Coast</span>
                         <h3 class="kz-grid-title">DIANI</h3>
                         <p class="kz-grid-desc">Pristine Beach</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,950</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -951,7 +1084,10 @@
                         <span class="kz-grid-category">Kenya Coast</span>
                         <h3 class="kz-grid-title">MALINDI</h3>
                         <p class="kz-grid-desc">Coastal Town</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,750</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -962,7 +1098,10 @@
                         <span class="kz-grid-category">Kenya Coast</span>
                         <h3 class="kz-grid-title">WATAMU</h3>
                         <p class="kz-grid-desc">Marine National Park</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,800</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -988,7 +1127,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">APARTHEID</h3>
                         <p class="kz-grid-desc">Museum</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,100</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1000,7 +1142,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">CONSTITUTION</h3>
                         <p class="kz-grid-desc">Hill</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $850</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1012,7 +1157,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">MANDELA</h3>
                         <p class="kz-grid-desc">Square</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $700</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1024,7 +1172,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">SOWETO</h3>
                         <p class="kz-grid-desc">Vilakazi Street</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $950</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1036,7 +1187,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">VILAKAZI</h3>
                         <p class="kz-grid-desc">Nelson Mandela House</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $800</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1048,7 +1202,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">CRADLE</h3>
                         <p class="kz-grid-desc">Of Humankind</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,150</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1060,7 +1217,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">LION WALK</h3>
                         <p class="kz-grid-desc">Experience</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,400</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
 
@@ -1072,7 +1232,10 @@
                         <span class="kz-grid-category">South Africa</span>
                         <h3 class="kz-grid-title">DINOKENG</h3>
                         <p class="kz-grid-desc">Game Reserve</p>
-                        <div class="kz-grid-detail"><span class="kz-grid-btn">Discover</span></div>
+                        <div class="kz-grid-detail">
+                            <span class="kz-grid-price">From $1,350</span>
+                            <span class="kz-grid-btn">Discover</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -1506,12 +1669,14 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="choose-us-style-one-info">
-                            <h4 class="sub-title">Why Choose Us</h4>
-                            <h2 class="title split-text">Your trusted partner for African travel adventures</h2>
-                            <p class="wow fadeInUp" data-wow-delay="100ms">
-                                Kaleola Zar Limited brings you personally crafted travel experiences with deep local
-                                knowledge, dedicated support, and a passion for showcasing the true beauty of Africa. We
-                                handle every detail so you can focus on making memories.
+                            <h4 class="sub-title">Expertise & Exclusivity</h4>
+                            <h2 class="title split-text" style="font-size: 42px;">Guided by Experts.<br>Not Just
+                                Drivers.</h2>
+                            <p class="wow fadeInUp" data-wow-delay="100ms" style="font-size: 17px; line-height: 1.8;">
+                                A luxury safari is only as good as the team behind it. At Kaleola Zar Limited, you
+                                aren't just booking a vacation—you are securing VIP access to Africa's most breathtaking
+                                locations with elite, deeply knowledgeable local guides. We handle every complex
+                                logistic so you can travel with absolute peace of mind.
                             </p>
                         </div>
                     </div>
