@@ -1,0 +1,106 @@
+
+PROMPT FOR GENERATING AN HTML TRAVEL WEBSITE
+
+Create a modern, responsive HTML website for a travel agency called "Kaleola Zar Limited".
+The website should promote travel packages to Kenya and South Africa.
+
+Design Requirements:
+- Modern travel theme
+- Clean layout with large hero images
+- Mobile responsive
+- Use sections for destinations and packages
+- Include call-to-action buttons like "Book Now" and "Request Quote"
+- Use HTML, CSS, and optional JavaScript
+- Include a navigation bar and footer
+
+Website Structure:
+
+1. HERO SECTION
+Title: Explore Africa With Us
+Subtitle: Discover unforgettable travel experiences in Kenya and South Africa
+Call-to-action buttons: "Explore Packages" and "Contact Us"
+
+2. ABOUT SECTION
+Company Name: Kaleola Zar Limited
+Description:
+Kaleola Zar Limited is a travel service providing curated travel experiences across Africa. 
+We specialize in guided tours, travel packages, and unforgettable destination experiences.
+
+3. KENYA TRAVEL PACKAGES
+
+Package 1: Explore Kenya – Great Rift Valley
+Price: From R28,000 per person
+
+Package includes:
+- Return flights from Johannesburg to Nairobi
+- Hotel transfers
+- 7 nights accommodation
+- Daily breakfast
+
+Excursions:
+- Hell's Gate National Park
+- Lake Naivasha
+- Lake Elementaita – Soysambu National Park
+- Lake Nakuru National Park
+
+Optional Add-on:
+- Masai Mara Safari
+
+Package 2: Explore Kenya – Coastlands
+Price: From R24,000 per person
+
+Package includes:
+- Return flights from Johannesburg to Nairobi
+- 4 nights accommodation
+- Daily breakfast
+
+Destinations:
+- Diani Beach (turquoise waters)
+- Malindi historical coastal town
+- Watamu with extensive mangrove forests
+
+Optional:
+- All-inclusive package available on request
+
+4. SOUTH AFRICA PACKAGE
+
+Destination: Gauteng – Place of Gold
+Price: From $750
+
+Package includes:
+- Hotel transfers
+- 4 nights accommodation
+- Daily breakfast
+
+Excursions:
+- Apartheid Museum
+- Constitution Hill
+- Nelson Mandela Square
+- Soweto Tour – Vilakazi Street
+- Nelson Mandela House
+- Dinokeng Game Reserve (Big 5 reserve)
+- Guided enrichment lion walk
+
+5. CONTACT SECTION
+
+Travel Expert:
+Kgolagano Zaza Leola
+
+Email:
+Kgolagano.leola@gmail.com
+
+Phone:
++27 81 802 1466
+
+6. FOOTER
+Include:
+- Company name
+- Contact details
+- Social media icons
+- Copyright notice
+
+Additional Instructions:
+- Use attractive travel images for Kenya and South Africa
+- Include cards for each travel package
+- Use a color palette inspired by nature (blue, green, and warm sunset colors)
+- Ensure SEO-friendly HTML structure
