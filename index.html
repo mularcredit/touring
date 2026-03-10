@@ -537,6 +537,151 @@
     </style>
     <!-- End Hero Area -->
 
+    <!-- Start Promotional Section (From Audio Request)
+    ============================================= -->
+    <div class="kz-promo-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="kz-promo-image-container wow fadeInLeft">
+                        <!-- Placeholder for the happy person transparent PNG -->
+                        <img src="assets/img/custom/hero.png" alt="Happy Traveler" class="kz-promo-person">
+                        <div class="kz-promo-circle"></div>
+                    </div>
+                </div>
+                <div class="col-lg-7 pl-50 pl-md-15 pl-xs-15">
+                    <div class="kz-promo-content wow fadeInRight">
+                        <span class="kz-promo-eyebrow">Start Your Journey</span>
+                        <h2 class="kz-promo-title">Thinking of traveling to Kenya or South Africa and don't know where
+                            to begin?</h2>
+                        <div class="kz-promo-divider"></div>
+                        <p class="kz-promo-desc">
+                            Well, we are here to help! Whether you want to witness the Great Migration in the Masai
+                            Mara, taste the finest wines in South Africa's vineyards, or snorkel the crystal clear
+                            waters of Diani Beach, Kaleola Zar Limited crafts the perfect luxury itinerary just for you.
+                        </p>
+                        <a href="#contact" class="kz-btn-primary mt-4">Speak to an Expert</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .kz-promo-section {
+            background: linear-gradient(135deg, #0f1912 0%, #050806 100%);
+            padding: 80px 0 0 0;
+            /* No bottom padding so the person stands on the line */
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .kz-promo-image-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 450px;
+        }
+
+        .kz-promo-circle {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 94, 20, 0.05);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 100px rgba(255, 94, 20, 0.1);
+        }
+
+        .kz-promo-person {
+            position: relative;
+            z-index: 2;
+            max-height: 550px;
+            width: auto;
+            object-fit: contain;
+            /* Filters to make the placeholder look better until replaced */
+            filter: contrast(1.1) brightness(0.9);
+            border-radius: 20px 20px 0 0;
+            clip-path: inset(0 0 0 0);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .kz-promo-content {
+            padding: 40px 0 80px 0;
+        }
+
+        .kz-promo-eyebrow {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ff5e14;
+            margin-bottom: 15px;
+        }
+
+        .kz-promo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .kz-promo-divider {
+            width: 60px;
+            height: 2px;
+            background: #ff5e14;
+            margin-bottom: 30px;
+        }
+
+        .kz-promo-desc {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 17px;
+            color: #a8bcaf;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        @media (max-width: 991px) {
+            .kz-promo-section {
+                padding: 60px 0 0 0;
+            }
+
+            .kz-promo-image-container {
+                min-height: 350px;
+                margin-top: 40px;
+            }
+
+            .kz-promo-person {
+                max-height: 400px;
+            }
+
+            .kz-promo-content {
+                padding: 0 0 60px 0;
+                text-align: center;
+            }
+
+            .kz-promo-divider {
+                margin: 0 auto 30px auto;
+            }
+
+            .kz-promo-circle {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+
     <!-- Start Trust Banner (Authority Hook)
     ============================================= -->
     <div class="kz-trust-banner">
