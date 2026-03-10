@@ -540,13 +540,24 @@
     <!-- Start Promotional Section (From Audio Request)
     ============================================= -->
     <div class="kz-promo-section">
+        <!-- Animated glowing orbs for background ambiance -->
+        <div class="kz-promo-glow kz-glow-1"></div>
+        <div class="kz-promo-glow kz-glow-2"></div>
+
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="kz-promo-image-container wow fadeInLeft">
-                        <!-- Placeholder for the happy person transparent PNG -->
-                        <img src="assets/img/custom/hero.png" alt="Happy Traveler" class="kz-promo-person">
+                        <img src="assets/img/custom/premium_person.png" alt="Happy Traveler" class="kz-promo-person">
                         <div class="kz-promo-circle"></div>
+
+                        <!-- Floating Glassmorphism Badge -->
+                        <div class="kz-floating-badge wow bounceIn" data-wow-delay="0.5s">
+                            <div class="kz-badge-icon">⭐</div>
+                            <div class="kz-badge-text">
+                                <strong>5,000+</strong><br>Happy Travelers
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-7 pl-50 pl-md-15 pl-xs-15">
@@ -561,6 +572,13 @@
                             waters of Diani Beach, Kaleola Zar Limited crafts the perfect luxury itinerary just for you.
                         </p>
                         <a href="#contact" class="kz-btn-primary mt-4">Speak to an Expert</a>
+
+                        <!-- Trust signals under the button -->
+                        <div class="kz-promo-trust mt-4">
+                            <span><i class="fas fa-check-circle"></i> Seamless Booking</span>
+                            <span><i class="fas fa-check-circle"></i> Local Experts</span>
+                            <span><i class="fas fa-check-circle"></i> 24/7 VIP Support</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -570,11 +588,47 @@
     <style>
         .kz-promo-section {
             background: linear-gradient(135deg, #0f1912 0%, #050806 100%);
-            padding: 80px 0 0 0;
-            /* No bottom padding so the person stands on the line */
+            padding: 100px 0 0 0;
             overflow: hidden;
             position: relative;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animated Background Glows */
+        .kz-promo-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: floatGlow 8s ease-in-out infinite alternate;
+        }
+
+        .kz-glow-1 {
+            width: 400px;
+            height: 400px;
+            background: #ff5e14;
+            top: -100px;
+            left: -100px;
+        }
+
+        .kz-glow-2 {
+            width: 500px;
+            height: 500px;
+            background: #193223;
+            bottom: -200px;
+            right: 10%;
+            animation-duration: 12s;
+        }
+
+        @keyframes floatGlow {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(50px) scale(1.1);
+            }
         }
 
         .kz-promo-image-container {
@@ -583,73 +637,144 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            min-height: 450px;
+            min-height: 500px;
+            z-index: 2;
         }
 
         .kz-promo-circle {
             position: absolute;
-            bottom: -50px;
+            bottom: -60px;
             left: 50%;
             transform: translateX(-50%);
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 94, 20, 0.05);
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(255, 94, 20, 0.15) 0%, rgba(255, 94, 20, 0) 70%);
             border-radius: 50%;
             z-index: 1;
-            box-shadow: 0 0 100px rgba(255, 94, 20, 0.1);
         }
 
         .kz-promo-person {
             position: relative;
             z-index: 2;
-            max-height: 550px;
+            max-height: 600px;
             width: auto;
             object-fit: contain;
-            /* Filters to make the placeholder look better until replaced */
-            filter: contrast(1.1) brightness(0.9);
-            border-radius: 20px 20px 0 0;
-            clip-path: inset(0 0 0 0);
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+            /* Remove old hacks */
+        }
+
+        /* Floating Glassmorphism Badge */
+        .kz-floating-badge {
+            position: absolute;
+            bottom: 80px;
+            left: -20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .kz-badge-icon {
+            font-size: 24px;
+        }
+
+        .kz-badge-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            color: #e5f0ea;
+            line-height: 1.4;
+        }
+
+        .kz-badge-text strong {
+            font-size: 16px;
+            color: #fff;
+            font-weight: 800;
         }
 
         .kz-promo-content {
             padding: 40px 0 80px 0;
+            position: relative;
+            z-index: 2;
         }
 
         .kz-promo-eyebrow {
             display: block;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 5px;
             text-transform: uppercase;
             color: #ff5e14;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .kz-promo-title {
             font-family: 'Playfair Display', serif;
-            font-size: 38px;
+            font-size: 42px;
             color: #ffffff;
-            line-height: 1.25;
-            margin-bottom: 25px;
-            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .kz-promo-title span {
+            color: #ff5e14;
+            font-style: italic;
         }
 
         .kz-promo-divider {
-            width: 60px;
-            height: 2px;
+            width: 80px;
+            height: 3px;
             background: #ff5e14;
             margin-bottom: 30px;
+            border-radius: 2px;
         }
 
         .kz-promo-desc {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 17px;
+            font-size: 18px;
             color: #a8bcaf;
             line-height: 1.8;
             font-weight: 300;
+        }
+
+        .kz-promo-trust {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .kz-promo-trust span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            color: #c4d4ca;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .kz-promo-trust i {
+            color: #ff5e14;
         }
 
         @media (max-width: 991px) {
@@ -658,12 +783,26 @@
             }
 
             .kz-promo-image-container {
-                min-height: 350px;
+                min-height: 400px;
                 margin-top: 40px;
             }
 
             .kz-promo-person {
-                max-height: 400px;
+                max-height: 450px;
+            }
+
+            .kz-floating-badge {
+                left: 10%;
+                bottom: 40px;
+                padding: 10px 15px;
+            }
+
+            .kz-badge-text {
+                font-size: 10px;
+            }
+
+            .kz-badge-text strong {
+                font-size: 14px;
             }
 
             .kz-promo-content {
@@ -675,9 +814,9 @@
                 margin: 0 auto 30px auto;
             }
 
-            .kz-promo-circle {
-                width: 300px;
-                height: 300px;
+            .kz-promo-trust {
+                justify-content: center;
+                margin-top: 30px !important;
             }
         }
     </style>
