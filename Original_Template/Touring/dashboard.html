@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleola Zar – Bookings Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #161a22;
+            --card: #1c2130;
+            --border: #252b38;
+            --accent: #ff5e14;
+            --green: #25D366;
+            --text: #e4e8f0;
+            --muted: #6b7280;
+            --font: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            min-height: 100vh;
+        }
+
+        /* ---- Topbar ---- */
+        .topbar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 32px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .topbar-logo span {
+            font-weight: 300;
+        }
+
+        .topbar-badge {
+            font-size: 11px;
+            background: var(--accent);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 50px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .topbar-right a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .topbar-right a:hover {
+            color: var(--text);
+        }
+
+        /* ---- Main layout ---- */
+        .main {
+            padding: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ---- Stats row ---- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .stat-card.green::before {
+            background: var(--green);
+        }
+
+        .stat-card.blue::before {
+            background: #3b82f6;
+        }
+
+        .stat-card.purple::before {
+            background: #a855f7;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-sub {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* ---- Toolbar ---- */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 220px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .search-box::placeholder {
+            color: var(--muted);
+        }
+
+        .filter-select {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn-refresh {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-family: var(--font);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-refresh:hover {
+            opacity: 0.85;
+        }
+
+        /* ---- Table ---- */
+        .table-wrap {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background: var(--surface);
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 94, 20, 0.04);
+        }
+
+        tbody td {
+            padding: 14px 18px;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .td-name {
+            font-weight: 600;
+        }
+
+        .td-email a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .td-email a:hover {
+            color: var(--accent);
+        }
+
+        .td-pkg {
+            background: rgba(255, 94, 20, 0.12);
+            color: var(--accent);
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .badge-new {
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--green);
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .badge-read {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .badge-booked {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        /* ---- Empty / Loading states ---- */
+        .state-msg {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---- Setup notice ---- */
+        .setup-notice {
+            background: rgba(255, 94, 20, 0.08);
+            border: 1px solid rgba(255, 94, 20, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #f97316;
+        }
+
+        .setup-notice strong {
+            color: var(--accent);
+        }
+
+        .setup-notice code {
+            background: rgba(255, 94, 20, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 16px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            thead th,
+            tbody td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <a href="index.html" style="color:var(--text); text-decoration:none; font-size:13px; color:var(--muted);">←
+                Back to site</a>
+            &nbsp;&nbsp;
+            <span class="topbar-logo"><strong>Kaleola</strong> <span>Zar</span></span>
+            <span class="topbar-badge">Dashboard</span>
+        </div>
+        <div class="topbar-right">
+            <span id="last-updated" style="font-size:13px; color:var(--muted);"></span>
+            <a href="https://wa.me/27818021466" target="_blank">WhatsApp</a>
+            <a href="mailto:Kgolagano.leola@gmail.com">Email</a>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <!-- Setup notice (shown until URL is configured) -->
+        <div class="setup-notice" id="setup-notice">
+            ⚠️ <strong>Setup required:</strong> Open <code>dashboard.html</code>, find <code>var SCRIPT_URL</code> and
+            replace <code>'YOUR_APPS_SCRIPT_URL_HERE'</code> with your deployed Google Apps Script URL. See
+            <code>apps-script.gs</code> for full instructions.
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Enquiries</div>
+                <div class="stat-value" id="stat-total">—</div>
+                <div class="stat-sub">All time</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-label">New</div>
+                <div class="stat-value" id="stat-new">—</div>
+                <div class="stat-sub">Awaiting response</div>
+            </div>
+            <div class="stat-card blue">
+                <div class="stat-label">Most Popular</div>
+                <div class="stat-value" id="stat-pkg" style="font-size:16px; padding-top:6px;">—</div>
+                <div class="stat-sub">Package</div>
+            </div>
+            <div class="stat-card purple">
+                <div class="stat-label">This Month</div>
+                <div class="stat-value" id="stat-month">—</div>
+                <div class="stat-sub">Enquiries</div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <input type="text" class="search-box" id="search-input" placeholder="🔍  Search by name, email or package…">
+            <select class="filter-select" id="filter-pkg">
+                <option value="">All Packages</option>
+                <option value="Great Rift">Kenya – Great Rift Valley</option>
+                <option value="Coastlands">Kenya – Coastlands</option>
+                <option value="Gauteng">South Africa – Gauteng</option>
+                <option value="Custom">Custom Package</option>
+            </select>
+            <button class="btn-refresh" onclick="loadData()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10" />
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                </svg>
+                Refresh
+            </button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrap">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Package</th>
+                        <th>Travel Date</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <td colspan="9">
+                            <div class="state-msg">
+                                <div class="spinner"></div>
+                                Loading enquiries…
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        // ⚠️  Replace this with your actual deployed Apps Script URL
+        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycwtLPPJ9JQdLMqCqdlK7-efjI_Vi2xandT0G9KKGoTE5JbXAdufjeKxHOx_YpAZhg/exec';
+
+        var allData = [];
+
+        function loadData() {
+            if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+                document.getElementById('table-body').innerHTML = `
+                <tr><td colspan="9">
+                    <div class="state-msg">
+                        Configure your <strong>SCRIPT_URL</strong> first.<br>
+                        See the setup notice above for instructions.
+                    </div>
+                </td></tr>`;
+                return;
+            }
+
+            document.getElementById('setup-notice').style.display = 'none';
+            document.getElementById('table-body').innerHTML = `
+            <tr><td colspan="9">
+                <div class="state-msg"><div class="spinner"></div>Loading…</div>
+            </td></tr>`;
+
+            fetch(SCRIPT_URL)
+                .then(r => r.json())
+                .then(res => {
+                    if (res.status === 'success') {
+                        allData = res.data || [];
+                        document.getElementById('last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+                        renderTable(allData);
+                        updateStats(allData);
+                    } else {
+                        showError(res.message);
+                    }
+                })
+                .catch(err => showError(err.toString()));
+        }
+
+        function renderTable(rows) {
+            var tbody = document.getElementById('table-body');
+            if (!rows.length) {
+                tbody.innerHTML = '<tr><td colspan="9"><div class="state-msg">No enquiries yet.</div></td></tr>';
+                return;
+            }
+            tbody.innerHTML = rows.map(function (r, i) {
+                var status = r['Status'] || 'New';
+                var badge = status === 'New' ? 'badge-new' :
+                    status === 'Booked' ? 'badge-booked' : 'badge-read';
+                var msg = (r['Message'] || '').slice(0, 60) + ((r['Message'] || '').length > 60 ? '…' : '');
+                return '<tr>' +
+                    '<td style="color:var(--muted);">' + (i + 1) + '</td>' +
+                    '<td style="white-space:nowrap; color:var(--muted); font-size:13px;">' + (r['Timestamp'] || '') + '</td>' +
+                    '<td class="td-name">' + esc(r['Name'] || '') + '</td>' +
+                    '<td class="td-email"><a href="mailto:' + esc(r['Email'] || '') + '">' + esc(r['Email'] || '') + '</a></td>' +
+                    '<td><a href="tel:' + esc(r['Phone'] || '') + '" style="color:var(--muted); text-decoration:none;">' + esc(r['Phone'] || '') + '</a></td>' +
+                    '<td><span class="td-pkg">' + esc(r['Package'] || '') + '</span></td>' +
+                    '<td style="color:var(--muted); font-size:13px;">' + esc(r['Travel Date'] || '') + '</td>' +
+                    '<td style="color:var(--muted); font-size:13px; max-width:200px;">' + esc(msg) + '</td>' +
+                    '<td><span class="' + badge + '">' + esc(status) + '</span></td>' +
+                    '</tr>';
+            }).join('');
+        }
+
+        function updateStats(rows) {
+            document.getElementById('stat-total').textContent = rows.length;
+
+            var newCount = rows.filter(r => (r['Status'] || 'New') === 'New').length;
+            document.getElementById('stat-new').textContent = newCount;
+
+            // Most popular package
+            var pkgCount = {};
+            rows.forEach(r => { pkgCount[r['Package']] = (pkgCount[r['Package']] || 0) + 1; });
+            var topPkg = Object.entries(pkgCount).sort((a, b) => b[1] - a[1])[0];
+            document.getElementById('stat-pkg').textContent = topPkg ? topPkg[0].split('–').pop().trim() : '—';
+
+            // This month
+            var now = new Date();
+            var monthCount = rows.filter(function (r) {
+                var d = new Date(r['Timestamp']);
+                return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+            }).length;
+            document.getElementById('stat-month').textContent = monthCount;
+        }
+
+        function showError(msg) {
+            document.getElementById('table-body').innerHTML = '<tr><td colspan="9"><div class="state-msg" style="color:#f87171;">Error: ' + esc(msg) + '</div></td></tr>';
+        }
+
+        function esc(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Search + filter
+        document.getElementById('search-input').addEventListener('input', applyFilters);
+        document.getElementById('filter-pkg').addEventListener('change', applyFilters);
+
+        function applyFilters() {
+            var q = document.getElementById('search-input').value.toLowerCase();
+            var pkg = document.getElementById('filter-pkg').value.toLowerCase();
+            var filtered = allData.filter(function (r) {
+                var matchQ = !q || [r['Name'], r['Email'], r['Package'], r['Message']].join(' ').toLowerCase().includes(q);
+                var matchPkg = !pkg || (r['Package'] || '').toLowerCase().includes(pkg);
+                return matchQ && matchPkg;
+            });
+            renderTable(filtered);
+        }
+
+        // Auto-load on page open
+        loadData();
+        // Auto-refresh every 60 seconds
+        setInterval(loadData, 60000);
+    </script>
+
+</body>
+
+</html>
